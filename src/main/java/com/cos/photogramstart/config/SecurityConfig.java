@@ -15,6 +15,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		// TODO Auto-generated method stub
 		//super.configure(http); //3)얘가 가로잰다 -->지워줌 --> 기존 시큐리티가 가지고 있는 기능이 다 비활성화됨
 		//이제 우리가 낚아챌수 있게 주소 설정을 해주자 --> 인증이 안된사용자는 모두 login페이지로 
+		http.csrf().disable(); //csrf 비활성화
 		http.authorizeRequests()
 			.antMatchers("/", "/user/**", "/image/**","/subscribe/**","/comment/**").authenticated() //인증이 필요하다 이 주소로 들어오면 /auth/signin로 리다이렉트
 			.anyRequest().permitAll() //나머지 주소는 모두 허용
